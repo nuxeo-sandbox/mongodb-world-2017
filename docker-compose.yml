@@ -18,7 +18,6 @@ services:
     volumes:
     - dam-solution_nuxeo_store:/opt/nuxeo/server/packages/store
     - dam-solution_nuxeo_binaries:/var/lib/nuxeo/data/binaries
-    - ./nuxeo_war:/opt/nuxeo/server/nxserver/nuxeo.war
     links:
       - elasticsearch
       - mongodb
