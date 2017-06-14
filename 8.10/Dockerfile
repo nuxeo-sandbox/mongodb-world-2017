@@ -11,22 +11,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install wkhtmltopdf
 RUN apt-get update && apt-get install wkhtmltopdf -y --no-install-recommends
 
-# Add ffmpeg-support
-#  With libfaac
-#  With MP4
-#RUN echo "deb http://deb.debian.org/debian jessie contrib non-free" >> /etc/apt/sources.list
-##RUN apt-get update && apt-get install -y --no-install-recommends libfaac-dev git
-# Build ffmpeg
-##WORKDIR /tmp
-##ENV BUILD_YASM true
-##ENV LIBFAAC true
-##RUN git clone https://github.com/nuxeo/ffmpeg-nuxeo.git
-##WORKDIR ffmpeg-nuxeo
-##RUN ./build-all.sh \
- ##&& cd /tmp \
- ##&& rm -Rf ffmpeg-nuxeo \
- ##&& rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y ffmpeg
 # Use Oracle JVM
 # Inspired by http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
 RUN apt-get remove -y --purge openjdk-8-jdk \
