@@ -15,11 +15,11 @@ RUN apt-get update && apt-get install wkhtmltopdf -y --no-install-recommends
 #  With libfaac
 #  With MP4
 RUN echo "deb http://deb.debian.org/debian jessie contrib non-free" >> /etc/apt/sources.list
-RUN apt-get update && apt-get install -y --no-install-recommends libfaac-dev git
+##RUN apt-get update && apt-get install -y --no-install-recommends libfaac-dev git
 # Build ffmpeg
 WORKDIR /tmp
 ENV BUILD_YASM true
-ENV LIBFAAC true
+##ENV LIBFAAC true
 RUN git clone https://github.com/nuxeo/ffmpeg-nuxeo.git
 WORKDIR ffmpeg-nuxeo
 RUN ./build-all.sh \
