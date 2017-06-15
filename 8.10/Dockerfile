@@ -10,8 +10,15 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install wkhtmltopdf
 RUN apt-get update && apt-get install wkhtmltopdf -y --no-install-recommends
+# Add the nuxeo repository to the repository list
 
-RUN apt-get update && apt-get install -y ffmpeg
+RUN echo "deb http://apt.nuxeo.org/ trusty releases" > /etc/apt/sources.list.d/nuxeo.list
+
+# Register the nuxeo key
+
+RUN wget -q -O- http://apt.nuxeo.org/nuxeo.key | apt-key add -
+
+RUN apt-get update && apt-get install ffmpeg-nuxeo
 # Use Oracle JVM
 # Inspired by http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
 RUN apt-get remove -y --purge openjdk-8-jdk \
