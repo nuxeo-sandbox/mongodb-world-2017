@@ -2,7 +2,7 @@ version: '2'
 services:
   nuxeo:
     build: ./8.10
-    image: nuxeo/nuxeo:8.10-FFMPEG
+    image: nuxeo/nuxeo:8.10-FFMPEG-ORACLE
     ports:
     - "8080:8080"
     - "8787:8787"
